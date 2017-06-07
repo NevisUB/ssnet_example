@@ -32,6 +32,7 @@ else
     cd $setupdir/caffe;
     source configure.sh;
     make -j6;
+    make pycaffe
 
     if [[ ! -d $setupdir/geo2d ]]; then
 	git clone https://github.com/LArbys/Geo2D $setupdir/geo2d;
@@ -47,6 +48,7 @@ else
     cd $setupdir/caffe;
     source configure.sh;
     make -j6;
+    make pycaffe
 
     cd $orig_dir;
 fi
