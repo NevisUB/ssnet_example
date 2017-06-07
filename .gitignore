@@ -1,0 +1,7 @@
+*.root
+*.txt
+*.log
+*.pyc
+sw/larcv
+sw/caffe
+sw/geo2d
