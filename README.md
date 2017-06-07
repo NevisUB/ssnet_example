@@ -29,3 +29,20 @@ where ```FILE1```, ```FILE2```, etc. are all input files.
 If the same named file already exsits it halt the execution and exits.
 
 
+# Particular example on Wu
+
+```
+(log in)
+> cd WHERE_YOU_PUT_THIS_REPO
+> source sw/setup.sh
+> python run_ssnet.py out.root /stage2/drinkingkazu/march23/intrinsic_nue/out_supera/larcv_0000_0099.root /stage2/drinkingkazu/march23/intrinsic_nue/out_supera/larcv_0000_0099.root 
+```
+... where 
+```
+/stage2/drinkingkazu/march23/intrinsic_nue/out_supera/larcv_0000_0099.root
+```
+is supera output = tagger input, and
+```
+/stage2/drinkingkazu/march23/intrinsic_nue/out_supera/larcv_0000_0099.root
+```
+is tagger output file.
