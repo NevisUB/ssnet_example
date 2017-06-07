@@ -35,7 +35,7 @@ If the same named file already exsits it halt the execution and exits.
 (log in)
 > cd WHERE_YOU_PUT_THIS_REPO
 > source sw/setup.sh
-> python run_ssnet.py out.root /stage2/drinkingkazu/march23/intrinsic_nue/out_supera/larcv_0000_0099.root /stage2/drinkingkazu/march23/intrinsic_nue/out_supera/larcv_0000_0099.root 
+> python run_ssnet.py out.root /stage2/drinkingkazu/march23/intrinsic_nue/out_supera/larcv_0000_0099.root /stage2/drinkingkazu/march23/intrinsic_nue/out_tagger/output_tagger_larcv_0000_0099.root
 ```
 ... where 
 ```
@@ -43,6 +43,6 @@ If the same named file already exsits it halt the execution and exits.
 ```
 is supera output = tagger input, and
 ```
-/stage2/drinkingkazu/march23/intrinsic_nue/out_supera/larcv_0000_0099.root
+/stage2/drinkingkazu/march23/intrinsic_nue/out_tagger/output_tagger_larcv_0000_0099.root
 ```
 is tagger output file.
