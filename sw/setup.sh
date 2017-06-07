@@ -40,6 +40,8 @@ else
     source config/setup.sh;
     make -j6;
 
+    rm $LARCV_LIBDIR/liblarcv.so
+
     cd $setupdir/larcv;
     source configure.sh;
     make -j6;

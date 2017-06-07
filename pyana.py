@@ -14,6 +14,7 @@ if GPUID < 0:
 
 import numpy as np
 import ROOT as rt
+rt.gSystem.Load("libGeo2D_Core.so")
 from ROOT import larcv
 import matplotlib.pyplot as plt
 from caffe.image2d_data_layer import Image2DLayer as il
