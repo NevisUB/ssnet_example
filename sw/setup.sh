@@ -1,6 +1,8 @@
 #!/bin/env bash
-source /etc/larbys.sh
+#source /etc/larbys.sh
 export LARCV_ANN=0
+export OPENCV_LIBDIR=/usr/local/lib
+export OPENCV_INCDIR=/usr/local/include
 setupdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 orig_dir=$PWD
@@ -30,6 +32,7 @@ else
 	git clone https://github.com/LArbys/caffe $setupdir/caffe;
     fi
     cd $setupdir/caffe;
+    git checkout tmw_container
     source configure.sh;
     make -j6;
     make pycaffe
