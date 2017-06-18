@@ -4,13 +4,13 @@ import os,sys,time
 os.environ['GLOG_minloglevel'] = '2' # set message level to warning 
 
 # Check GPU availability before heavy lib loading
-from choose_gpu import pick_gpu
-GPUMEM = 10000
-GPUID = pick_gpu(mem_min=GPUMEM,caffe_gpuid=True)
-if GPUID < 0:
-    sys.stderr.write('No GPU available with memory > %d\n' % GPUMEM)
-    sys.stderr.flush()
-    sys.exit(1)
+#from choose_gpu import pick_gpu
+#GPUMEM = 10000
+#GPUID = pick_gpu(mem_min=GPUMEM,caffe_gpuid=True)
+#if GPUID < 0:
+#    sys.stderr.write('No GPU available with memory > %d\n' % GPUMEM)
+#    sys.stderr.flush()
+#    sys.exit(1)
 
 import numpy as np
 import ROOT as rt
@@ -19,8 +19,11 @@ from ROOT import larcv
 import matplotlib.pyplot as plt
 from caffe.image2d_data_layer import Image2DLayer as il
 import caffe
-caffe.set_mode_gpu()
-caffe.set_device(GPUID)
+caffe.set_mode_cpu()
+#caffe.set_device(GPUID)
+
+print "MODULES LOADED"
+sys.exit(1)
 
 PROTO  = None
 MODEL  = None
