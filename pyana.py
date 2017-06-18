@@ -23,7 +23,6 @@ caffe.set_mode_cpu()
 #caffe.set_device(GPUID)
 
 print "MODULES LOADED"
-sys.exit(1)
 
 PROTO  = None
 MODEL  = None
