@@ -9,6 +9,9 @@ outfile = sys.argv[1]
 if os.path.isfile(outfile):
     print 'output file already present:',outfile
     sys.exit(1)
+if outfile[-5:]!=".root":
+    print "output file does not end with .root"
+    sys.exit(1)
 
 for argv in sys.argv:
     if argv == outfile: continue
@@ -20,14 +23,16 @@ ERROR=False
 for plane in ['plane0','plane1','plane2']:
     try:
         print 'Processing',plane
-        cmd = 'python pyana.py pyana.prototxt %s ' % plane
+        fname_stem = outfile.replace(".root","")
+        cmd = 'python pyana.py pyana.prototxt %s %s '%(fname_stem, plane)
         for f in flist:
             cmd += '%s ' % f
 
         print cmd
         return_code = int(os.system(cmd))
     
-        fname = 'larcv_fcn_plane%s.root' % plane
+        #fname = 'larcv_fcn_plane%s.root' % plane
+        fname = outfile.replace(".root","_%s.root"%(plane))
         if return_code:
             sys.stderr.write('Failed with return code %d\n' % return_code)
             raise Exception

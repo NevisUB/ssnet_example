@@ -36,22 +36,25 @@ MODELMAP={'plane0' : 'uresnet64_plane0_iter_8000.caffemodel.h5',
           'plane2' : 'uresnet64_plane2_iter_8000.caffemodel.h5'}
 PLANEID=''
 MODEL=''
+OUTFILESTEM='larcv_fcn'
 
 flist=rt.std.vector('string')()
 for argv in sys.argv:
     if argv.find('.prototxt') >= 0:
         PROTO = argv
-    if argv.endswith('.root'):
+    elif argv.endswith('.root'):
         flist.push_back(argv)
-    if argv == 'plane0':
+    elif argv == 'plane0':
         PLANEID=argv
         MODEL=MODELMAP['plane0']
-    if argv == 'plane1':
+    elif argv == 'plane1':
         PLANEID=argv
         MODEL=MODELMAP['plane1']
-    if argv == 'plane2':
+    elif argv == 'plane2':
         PLANEID=argv
         MODEL=MODELMAP['plane2']
+    else:
+        OUTFILESTEM=argv
 
 if not PLANEID or not MODEL:
     print 'Valid plane id not provided!'
@@ -60,12 +63,13 @@ if not PLANEID or not MODEL:
 INCFG  = 'pyana_in_%s.cfg' % PLANEID
 print "Using input config:",INCFG
 debug = 'debug' in sys.argv
+print "Out file stem: ",OUTFILESTEM
 
 out_proc = larcv.ProcessDriver('OutputProcessDriver')
 out_proc.configure(OUTCFG)
 py_image_maker = out_proc.process_ptr(out_proc.process_id("PyImageStitcher"))
 py_image_maker.set_producer_name('uburn_%s' % PLANEID)
-out_proc.override_output_file('larcv_fcn_plane%s.root' % PLANEID)
+out_proc.override_output_file('%s_%s.root'%(OUTFILESTEM,PLANEID) )
 out_proc.initialize()
 
 in_proc = larcv.ProcessDriver('InputProcessDriver')
