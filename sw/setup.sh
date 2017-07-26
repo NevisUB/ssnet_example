@@ -1,5 +1,5 @@
 #!/bin/env bash
-source /etc/larbys.sh
+#source /etc/larbys.sh
 export LARCV_ANN=0
 export OPENCV_LIBDIR=/usr/local/lib
 export OPENCV_INCDIR=/usr/local/include
