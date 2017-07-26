@@ -1,5 +1,5 @@
 #!/bin/env bash
-#source /etc/larbys.sh
+source /etc/larbys.sh
 export LARCV_ANN=0
 export OPENCV_LIBDIR=/usr/local/lib
 export OPENCV_INCDIR=/usr/local/include
@@ -26,13 +26,15 @@ else
     fi
     cd $setupdir/larcv;
     source configure.sh;
+    make clean
     make -j6;
 
     if [[ ! -d $setupdir/caffe ]]; then
 	git clone https://github.com/LArbys/caffe $setupdir/caffe;
     fi
     cd $setupdir/caffe;
-    git checkout tmw_container
+    #git checkout tmw_container
+    git checkout ub_develop_nudot
     source configure.sh;
     make -j6;
     make pycaffe
