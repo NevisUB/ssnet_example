@@ -29,9 +29,9 @@ MASK_ADC = True
 MASK_THRESH = 10.
 SKIP_CH = [0]
 
-MODELMAP={'plane0' : 'uresnet64_plane0_iter_8000.caffemodel.h5',
-          'plane1' : 'uresnet64_plane1_iter_8000.caffemodel.h5',
-          'plane2' : 'uresnet64_plane2_iter_8000.caffemodel.h5'}
+MODELMAP={'plane0' : 'pretrain_segmentation_tskeyspweights_plane0.caffemodel.h5',
+          'plane1' : 'pretrain_segmentation_tskeyspweights_plane0.caffemodel.h5',
+          'plane2' : 'pretrain_segmentation_tskeyspweights_plane0.caffemodel.h5'}
 PLANEID=''
 MODEL=''
 
