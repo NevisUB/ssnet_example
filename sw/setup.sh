@@ -1,10 +1,10 @@
 #!/bin/env bash
-source /etc/larbys.sh
+#source /etc/larbys.sh
 export LARCV_ANN=0
 setupdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 orig_dir=$PWD
-force_rebuild=0;
+force_rebuild=1;
 if [[ ! -d $setupdir/larcv ]]; then
     force_rebuild=1;
 fi
@@ -30,6 +30,7 @@ else
 	git clone https://github.com/LArbys/caffe $setupdir/caffe;
     fi
     cd $setupdir/caffe;
+    git checkout laurel_workspace
     source configure.sh;
     make -j6;
     make pycaffe
