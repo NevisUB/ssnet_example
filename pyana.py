@@ -15,7 +15,8 @@ if GPUID < 0:
 import numpy as np
 import ROOT as rt
 rt.gSystem.Load("libGeo2D_Core.so")
-from ROOT import larcv
+from larcv import larcv
+#from ROOT import larcv
 import matplotlib.pyplot as plt
 from caffe.image2d_data_layer import Image2DLayer as il
 import caffe
@@ -29,9 +30,9 @@ MASK_ADC = True
 MASK_THRESH = 10.
 SKIP_CH = [0]
 
-MODELMAP={'plane0' : 'pretrain_segmentation_tskeyspweights_plane0.caffemodel.h5',
-          'plane1' : 'pretrain_segmentation_tskeyspweights_plane0.caffemodel.h5',
-          'plane2' : 'pretrain_segmentation_tskeyspweights_plane0.caffemodel.h5'}
+MODELMAP={'plane0' : 'segmentation_pixelwise_ikey_plane0_iter_75500.caffemodel',
+          'plane1' : 'segmentation_pixelwise_ikey_plane1_iter_65500.caffemodel',
+          'plane2' : 'segmentation_pixelwise_ikey_plane2_iter_68000.caffemodel'}
 PLANEID=''
 MODEL=''
 
