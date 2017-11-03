@@ -30,19 +30,27 @@ If the same named file already exsits it halt the execution and exits.
 
 
 # Particular example on Wu
-
+First, set up
 ```
 (log in)
 > cd WHERE_YOU_PUT_THIS_REPO
 > source sw/setup.sh
-> python run_ssnet.py out.root /stage2/drinkingkazu/march23/intrinsic_nue/out_supera/larcv_0000_0099.root /stage2/drinkingkazu/march23/intrinsic_nue/out_tagger/output_tagger_larcv_0000_0099.root
 ```
-... where 
+We will use one version of trained network. The script we will use (```run_ssnet.py```) requires trained networks' weights to exist in the same directory. So let's make symbolic links there.
 ```
-/stage2/drinkingkazu/march23/intrinsic_nue/out_supera/larcv_0000_0099.root
+ln -s /data/drinkingkazu/UBDeconvNet/dlmc_mcc8_ssnet_v4/segmentation_pixelwise_ikey_plane0_iter_75500.caffemodel
+ln -s /data/drinkingkazu/UBDeconvNet/dlmc_mcc8_ssnet_v4/segmentation_pixelwise_ikey_plane1_iter_65500.caffemodel 
+ln -s /data/drinkingkazu/UBDeconvNet/dlmc_mcc8_ssnet_v4/segmentation_pixelwise_ikey_plane2_iter_68000.caffemodel 
 ```
-is supera output = tagger input, and
+... where three symbolic links correspond to a stored weight file per plane (you see plane0, plane1, plane2 in file name).
+
+Next let's make another symbolic link for an input root file. We just use one of many handy example files @ wu.
 ```
-/stage2/drinkingkazu/march23/intrinsic_nue/out_tagger/output_tagger_larcv_0000_0099.root
+ln -s /stage2/drinkingkazu/march23/intrinsic_nue/out_supera/larcv_0000_0099.root sample.root
 ```
-is tagger output file.
+
+Now we are ready to try out
+```
+> python run_ssnet.py out.root sample.root
+```
+... where ```out.root``` is the output file name and ```sample.root``` is the input (symbolic link) file.
