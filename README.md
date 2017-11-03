@@ -2,7 +2,7 @@
 
 First time configuration:
 ```
-git clone https://github.com/LArbys/ssnet_example
+git clone https://github.com/NevisUB/ssnet_example
 cd ssnet_example/sw
 source setup.sh
 ```
