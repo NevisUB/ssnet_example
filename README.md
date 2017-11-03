@@ -44,9 +44,9 @@ ln -s /data/drinkingkazu/UBDeconvNet/dlmc_mcc8_ssnet_v4/segmentation_pixelwise_i
 ```
 ... where three symbolic links correspond to a stored weight file per plane (you see plane0, plane1, plane2 in file name).
 
-Next let's make another symbolic link for an input root file. We just use one of many handy example files @ wu.
+Next let's make a sample input root file with just 5 events. We just use one of many handy example files @ wu to do this.
 ```
-ln -s /stage2/drinkingkazu/march23/intrinsic_nue/out_supera/larcv_0000_0099.root sample.root
+run_processor copy.cfg /stage2/drinkingkazu/march23/intrinsic_nue/out_supera/larcv_0000_0099.root
 ```
 
 Now we are ready to try out
