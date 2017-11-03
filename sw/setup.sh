@@ -21,6 +21,9 @@ else
     unset GEO2D_BASEDIR
     if [[ ! -d $setupdir/larcv ]]; then
 	git clone https://github.com/LArbys/LArCV $setupdir/larcv;
+	cd $setupdir/larcv;
+	git checkout ccpi0;
+	cd -;
     fi
     cd $setupdir/larcv;
     source configure.sh;
