@@ -71,7 +71,7 @@ in_proc = larcv.ProcessDriver('InputProcessDriver')
 in_proc.configure(INCFG)
 in_proc.override_input_file(flist)
 in_proc.initialize()
-cropper = in_proc.process_ptr(in_proc.process_id("MultiROICropper"))
+cropper = in_proc.process_ptr(in_proc.process_id("WholeImageCropper"))
 il._rows = cropper.target_rows()
 il._cols = cropper.target_cols()
 
