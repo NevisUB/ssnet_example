@@ -51,6 +51,6 @@ run_processor copy.cfg /stage2/drinkingkazu/march23/intrinsic_nue/out_supera/lar
 
 Now we are ready to try out
 ```
-> python run_ssnet.py out.root sample.root
+python run_ssnet.py out.root sample.root
 ```
 ... where ```out.root``` is the output file name and ```sample.root``` is the input (symbolic link) file.
